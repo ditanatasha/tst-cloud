@@ -70,7 +70,7 @@ def update_kegiatan(id_kegiatan:str, new_nama_kegiatan:str, new_start_kegiatan: 
         status_code=404, detail=f'Kegiatan failed to update.'
       )
 
-#Menghapus kegiatan
+#Menghapus kegiatan berdasarkan id
 @app.delete('/kegiatan', response_model=schemas.Kegiatan)
 def delete_kegiatan(id_kegiatan:int, db: Session = Depends(get_db)):
     delete_kegiatan=db.query(models.Kegiatan).filter(models.Kegiatan.id_kegiatan==id_kegiatan).first()
