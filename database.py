@@ -2,7 +2,7 @@ from sqlalchemy.orm import declarative_base
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 
-engine=create_engine("postgresql://postgres:rhysand@localhost:5432/rpl2",
+engine=create_engine("postgres://lyensdcsxcbzuj:fae113f724ad2dda905c7c506d77441a7c46f455c0ea754456fa80e582923e4f@ec2-18-208-97-23.compute-1.amazonaws.com:5432/d3aogpga7f8189",
     echo=True
 )
 
