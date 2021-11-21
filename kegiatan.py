@@ -71,9 +71,9 @@ def update_kegiatan(id_kegiatan:str, new_nama_kegiatan:str, new_start_kegiatan: 
       )
 
 #Menghapus kegiatan
-@app.delete('/kegiatan', response_model=List[schemas.Kegiatan] )
+@app.delete('/kegiatan', response_model=schemas.Kegiatan)
 def delete_kegiatan(id_kegiatan:int, db: Session = Depends(get_db)):
-    delete_kegiatan=db.query(models.Kegiatan).filter(models.Kegiatan.id_kegiatan==id_kegiatan).all()
+    delete_kegiatan=db.query(models.Kegiatan).filter(models.Kegiatan.id_kegiatan==id_kegiatan).first()
     if delete_kegiatan is None:
         raise HTTPException(status_code=status.HTTP_404_NOT_FOUND,detail="Kegiatan Not Found")
        
